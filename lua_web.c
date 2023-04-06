@@ -30,7 +30,6 @@ int compile(const char* fonte){
     }
 
     lua_close(state);
-
     return res;
 }
 
@@ -39,10 +38,11 @@ int run(const char* fonte){
     luaL_openlibs(state);
     int res = luaL_dostring(state, fonte);
     
-    //
-	size_t len = 0;
-	const char* value = lua_tolstring(state, lua_gettop(state), &len);
-	printf("%s\n", value);
+    if(res != nil){
+        size_t len = 0;
+        const char* value = lua_tolstring(state, lua_gettop(state), &len);
+        printf("%s\n", value);
+    }
 
     lua_close(state);
     return res;

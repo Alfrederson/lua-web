@@ -20,6 +20,9 @@
 
         let output = ""
 
+        // out e err são definidas dentro de lua_web.js
+        // não sei em qual ocasião err é chamada
+        // out é chamada no "print"
         out = function(x){
             output += x
         }
