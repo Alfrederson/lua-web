@@ -63,17 +63,16 @@ local c = 1
 function resolver(a,b,c)
     local delta = b^2 - 4*a*c
     if delta < 0 then
-    return nil, nil   -- delta menor que 0 = sem solução
+        return nil, nil   -- delta menor que 0 = sem solução
     elseif delta == 0 then
-    local raiz = -b / (2*a)
-    return raiz, nil -- delta = 0 = 1 solução
+        local raiz = -b / (2*a)
+        return raiz, nil -- delta = 0 = 1 solução
     else
-    local r1 = (-b + math.sqrt(delta)) / (2*a)
-    local r2 = (-b - math.sqrt(delta)) / (2*a)
-    return r1,r2
+        local r1 = (-b + math.sqrt(delta)) / (2*a)
+        local r2 = (-b - math.sqrt(delta)) / (2*a)
+        return r1,r2
     end
 end
-
 
 print(a .. "^2x " .. b .. "x " .. c .. " = 0 ")
 print("\r")
