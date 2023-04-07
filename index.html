@@ -53,17 +53,38 @@
     <h1>Lua Web 🌙</h1>
     <p>Input:</p>
     <textarea id="in" style="width:100%; height: 128px; font-family:monospace">
-for i = 1, 100 do
-    if i % 3 == 0 and i % 5 == 0 then
-        print("FizzBuzz")
-    elseif i % 3 == 0 then
-        print("Fizz")
-    elseif i % 5 == 0 then
-        print("Buzz")
+-- função pra resolver equações de segundo grau
+-- a*x^2 + b*x + c
+
+local a = 4
+local b = 4
+local c = 1
+
+function resolver(a,b,c)
+    local delta = b^2 - 4*a*c
+    if delta < 0 then
+    return nil, nil   -- delta menor que 0 = sem solução
+    elseif delta == 0 then
+    local raiz = -b / (2*a)
+    return raiz, nil -- delta = 0 = 1 solução
     else
-        print(i)
+    local r1 = (-b + math.sqrt(delta)) / (2*a)
+    local r2 = (-b - math.sqrt(delta)) / (2*a)
+    return r1,r2
     end
-    print("\r")
+end
+
+
+print(a .. "^2x " .. b .. "x " .. c .. " = 0 ")
+print("\r")
+local r1, r2 = resolver(a,b,c)
+
+if r1 and r2 then
+    print("2 soluções: " .. r1 .. " e " .. r2 )
+elseif r1 then
+    print("1 solução: " .. r1 )
+else
+    print("Não tem soluções. ")
 end
     </textarea>
     <p>Output:</p>
